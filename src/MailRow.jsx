@@ -11,7 +11,7 @@ export default function MailRow({ mail }) {
         <em>{new Date(mail.date).toLocaleDateString()}</em>
       </div>
       <div>
-        <span title={mail.from_long}>{mail.from}</span> &rarr;
+        <span title={mail.from_long}>{mail.from}</span> &rarr;{" "}
         <span title={mail.to_long}>{mail.to}</span>
       </div>
 
@@ -22,9 +22,7 @@ export default function MailRow({ mail }) {
         {showFull ? <>&#9650;</> : <>&#9660;</>}
       </button>
 
-      {showFull && (
-        <MailBody mail={mail}/>
-      )}
+      {showFull && <MailBody mail={mail} />}
     </div>
   );
 }
