@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import fetcher from "./fetcher";
 
 export function useFetch(endpoint) {
   const [data, setData] = useState(null);
@@ -6,24 +7,8 @@ export function useFetch(endpoint) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(`http://localhost:8000/api/${endpoint}`, {
-          headers: { "Access-Control-Allow-Origin": "http://localhost:5173" },
-        });
-        if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-
-        const json = await res.json();
-        setData(json);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
+    fetcher(endpoint, setData, setError, () => setLoading(false));
   }, [endpoint]);
 
-  return { data, loading, error };
+  return { data, loading, setLoading, error };
 }

@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 export default function PageControls({ pagination }) {
   return (
-    <div className="flex flex-row gap-5 p-3 my-5 rounded-3xl border dark:bg-violet-900 dark:text-violet-300 dark:border-violet-300">
+    <div className="flex flex-row gap-5 p-3 my-5 rounded-3xl border dark:bg-violet-900 dark:text-violet-200 dark:border-violet-200">
       <button
         onClick={pagination.prevPage}
         disabled={!pagination.prevPage}
