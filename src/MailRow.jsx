@@ -1,22 +1,29 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import MailBody from "./MailBody";
+
 export default function MailRow({ mail }) {
   const [showFull, setShowFull] = useState(false);
 
   return (
-    <div className="relative p-5 rounded-md border dark:bg-gray-800">
+    <div className="relative p-5 px-10 rounded-md border dark:bg-gray-800">
+      {!mail.seen && (
+        <div
+          className="absolute w-3 h-3 rounded-[50%] top-[50%] left-4 translate-y-[-50%]"
+          style={{ background: "lightgreen" }}
+        ></div>
+      )}
       <div className="flex flex-row justify-between">
         <b className="dark:text-white">{mail.subject}</b>
         <em>{new Date(mail.date).toLocaleDateString()}</em>
       </div>
       <div>
         <span title={mail.from.map((p) => p.long).join(", ")}>
-          {mail.from.map((p) => p.address).join(", ")}
+          {mail.from.map((p) => p.short).join(", ")}
         </span>{" "}
         &rarr;{" "}
         <span title={mail.to.map((p) => p.long).join(", ")}>
-          {mail.to.map((p) => p.address).join(", ")}
+          {mail.to.map((p) => p.short).join(", ")}
         </span>
       </div>
 
