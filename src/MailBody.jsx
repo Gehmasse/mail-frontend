@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 export default function MailBody({ mail }) {
-  const url = `http://localhost:8000/?page=body&id=${mail.id}`;
+  const url = `http://localhost:8000/?page=body&id=${mail.id}&account=${mail.account}`;
 
   return (
     <div className="pt-5 mt-5 border-t">
