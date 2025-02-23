@@ -11,8 +11,13 @@ export default function MailRow({ mail }) {
         <em>{new Date(mail.date).toLocaleDateString()}</em>
       </div>
       <div>
-        <span title={mail.from_long}>{mail.from}</span> &rarr;{" "}
-        <span title={mail.to_long}>{mail.to}</span>
+        <span title={mail.from.map((p) => p.long).join(", ")}>
+          {mail.from.map((p) => p.address).join(", ")}
+        </span>{" "}
+        &rarr;{" "}
+        <span title={mail.to.map((p) => p.long).join(", ")}>
+          {mail.to.map((p) => p.address).join(", ")}
+        </span>
       </div>
 
       <button
