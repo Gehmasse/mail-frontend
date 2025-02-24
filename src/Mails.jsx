@@ -3,6 +3,7 @@ import Loading from "./Loading";
 import MailRow from "./MailRow";
 
 import { useFetch } from "./useFetch";
+import { logout } from "./auth";
 
 export default function Mails() {
   const [limit, setLimit] = useState(20);
@@ -19,10 +20,17 @@ export default function Mails() {
         <button onClick={() => setLimit(20)}>50</button>
         <button onClick={() => setLimit(20)}>100</button>
       </div>
-      
+
+      <button
+        onClick={() => logout()}
+        className="absolute top-7 right-10 p-3 px-10 my-5 rounded-3xl border dark:bg-violet-900 dark:text-violet-200 dark:border-violet-200"
+      >
+        Logout
+      </button>
+
       <div className="flex flex-col gap-5 w-full lg:w-1/2">
-        {data.map((mail) => (
-          <MailRow key={mail.id} mail={mail} />
+        {data.map((mail, index) => (
+          <MailRow key={mail.address + mail.id || index} mail={mail} />
         ))}
       </div>
     </>
