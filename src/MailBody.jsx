@@ -1,7 +1,10 @@
 import PropTypes from "prop-types";
+import { useAuth } from "./AuthProvider";
 
 export default function MailBody({ mail }) {
-  const url = `http://localhost:8000/?page=body&id=${mail.id}&account=${mail.account}`;
+  const { token } = useAuth();
+  
+  const url = `http://localhost:8000/?page=body&id=${mail.id}&account=${mail.account}&token=${token}`;
 
   return (
     <div className="pt-5 mt-5 border-t">

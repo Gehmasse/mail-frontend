@@ -16,18 +16,20 @@ export default function Mails() {
 
   return (
     <>
-      <div className="flex flex-row gap-5 p-3 px-10 my-5 rounded-3xl border dark:bg-violet-900 dark:text-violet-200 dark:border-violet-200">
-        <button onClick={() => setLimit(20)}>20</button>
-        <button onClick={() => setLimit(20)}>50</button>
-        <button onClick={() => setLimit(20)}>100</button>
-      </div>
+      <div className="flex flex-col gap-5 mb-5 md:gap-10 md:flex-row">
+        <div className="flex flex-row gap-5 p-3 px-10 rounded-3xl border dark:bg-violet-900 dark:text-violet-200 dark:border-violet-200">
+          <button onClick={() => setLimit(20)}>20</button>
+          <button onClick={() => setLimit(20)}>50</button>
+          <button onClick={() => setLimit(20)}>100</button>
+        </div>
 
-      <button
-        onClick={() => logout()}
-        className="absolute top-7 right-10 p-3 px-10 my-5 rounded-3xl border dark:bg-violet-900 dark:text-violet-200 dark:border-violet-200"
-      >
-        Logout
-      </button>
+        <button
+          onClick={() => logout()}
+          className="p-3 px-10 rounded-3xl border dark:bg-violet-900 dark:text-violet-200 dark:border-violet-200"
+        >
+          Logout
+        </button>
+      </div>
 
       <div className="flex flex-col gap-5 w-full lg:w-1/2">
         {data.map((mail, index) => (
