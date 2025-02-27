@@ -13,7 +13,7 @@ export default function MailRow({ mail }) {
           style={{ background: "lightgreen" }}
         ></div>
       )}
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-col-reverse gap-1 justify-between md:flex-row">
         <b className="dark:text-white">{mail.subject}</b>
         <em>{new Date(mail.date).toLocaleDateString()}</em>
       </div>
