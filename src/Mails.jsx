@@ -3,12 +3,13 @@ import Loading from "./Loading";
 import MailRow from "./MailRow";
 
 import { useFetch } from "./useFetch";
-import { logout } from "./auth";
+import { useAuth } from "./AuthProvider";
 
 export default function Mails() {
   const [limit, setLimit] = useState(20);
 
   const { data, loading, error } = useFetch(`mails&limit=${limit || 20}`);
+  const { logout } = useAuth();
 
   if (loading) return <Loading />;
   if (error) return <p>Error: {error.message}</p>;
