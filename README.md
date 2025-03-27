@@ -1,8 +1,4 @@
-# React + Vite
+# Mail Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Provides a UI for [mail-archive](https://github.com/gehmasse/mail-archive) and [unified-inbox](https://github.com/Gehmasse/unified-inbox).
+Each one has a different branch in this repository. Make sure to use the correct one.
